@@ -18,7 +18,7 @@ const videos = [
       "categoria": "Ficción",
       "funcion": "Director",
       "portada": null,
-      "video": "https://www.youtube.com/embed/tfhMpl7lBXw",
+      "video": "https://www.youtube.com/embed/mnYJEQEH6YE",
       "rate": 2
     },
     {
@@ -323,7 +323,7 @@ const topVideos = [
         "rate": 1
       },
       {
-        "link": "https://youtu.be/mnYJEQEH6YE",
+        "link": "https://www.youtube.com/embed/mnYJEQEH6YE",
         "orientacion":"horizontal",
         "nombre": "El Viaje Más Corto",
         "fecha": 2020,
@@ -435,14 +435,17 @@ const topVideos = [
   const videosVertical = document.getElementById("videosVertical")
   function includeIframe(data){
     const element = `
+    <li class="d-flex justify-content-center">
     <div class="embed-responsive embed-responsive-16by9 ">
         <iframe class="embed-responsive-item ${data.orientacion === "vertical"?"videoVertical":"videoHorizontal"}" src="${data.video}" allowfullscreen></iframe>
     </div>
+    </li>
     `
     videosContainer.innerHTML += element
   }
   function includeVideoVertical(data){
     const element = `
+    <li class="d-flex justify-content-center">
     <div class="p-1 mx-auto">
     <video
     poster="${data.portada}"
@@ -453,6 +456,7 @@ const topVideos = [
     <source src="${data.video}" type="video/mp4"></source>
     </video>
     </div>
+    </li>
     `
     videosVertical.innerHTML += element
   }
@@ -469,4 +473,62 @@ const topVideos = [
   }
 
 init()
+$(document).ready(function() {
+  const lightSliderOptions = {
+    item: 1,
+    autoWidth: false,
+    slideMove: 1, // slidemove will be 1 if loop is true
+    slideMargin: 10,
 
+    addClass: '',
+    mode: "slide",
+    useCSS: true,
+    cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+    easing: 'linear', //'for jquery animation',////
+
+    speed: 400, //ms'
+    auto: false,
+    loop: true,
+    slideEndAnimation: true,
+    pause: 2000,
+
+    keyPress: true,
+    controls: true,
+    prevHtml: `
+    <i class="text-white text-md  bi bi-arrow-left-circle-fill"></i>
+    `,
+    nextHtml: `
+    <i class="text-white text-md bi bi-arrow-right-circle-fill"></i>
+    `,
+
+    rtl:false,
+    adaptiveHeight:false,
+
+    vertical:false,
+    verticalHeight:500,
+    vThumbWidth:100,
+
+    thumbItem:10,
+    pager: true,
+    gallery: false,
+    galleryMargin: 5,
+    thumbMargin: 5,
+    currentPagerPosition: 'middle',
+
+    enableTouch:true,
+    enableDrag:true,
+    freeMove:true,
+    swipeThreshold: 40,
+
+    responsive : [],
+
+    onBeforeStart: function (el) {},
+    onSliderLoad: function (el) {},
+    onBeforeSlide: function (el) {},
+    onAfterSlide: function (el) {},
+    onBeforeNextSlide: function (el) {},
+    onBeforePrevSlide: function (el) {}
+}
+  $("#videos").lightSlider(lightSliderOptions);
+  $("#videosVertical").lightSlider({...lightSliderOptions});
+});

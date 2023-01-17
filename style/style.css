@@ -11,8 +11,8 @@ body{
 
 }
 #footer{
-    background-color: #ffffff!important;
-    color: #000000!important;
+    background: rgb(39, 39, 39)!important;
+    color: #fff!important;
 }
 .fullScreen{
     min-height: 100vh;
@@ -34,6 +34,9 @@ body{
   }
   .text-justify {
       text-align: justify;
+  }
+  .text-md{
+    font-size: 30px;
   }
 
   .mt-10{
@@ -171,10 +174,10 @@ body{
   }
 
   .videoHorizontal{
-    width:640px!important;
-    height:360px!important;
+    width:1080px!important;
+    height:720px!important;
   }
   .videoVertical{
-    width: 300px!important;
-    height:500px;
+    width: 720px!important;
+    height:1080px!important;
   }
