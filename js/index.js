@@ -445,8 +445,8 @@ const topVideos = [
   }
   function includeVideoVertical(data){
     const element = `
-    <li class="d-flex justify-content-center">
-    <div class="p-1 mx-auto">
+    <li class="d-flex justify-content-center align-items-center">
+    <div class="video-wrapper">
     <video
     poster="${data.portada}"
     onclick="this.paused ? this.play() : this.pause();"
@@ -532,3 +532,5 @@ $(document).ready(function() {
   $("#videos").lightSlider(lightSliderOptions);
   $("#videosVertical").lightSlider({...lightSliderOptions});
 });
+
+$('.carousel').carousel();
